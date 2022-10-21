@@ -9,22 +9,29 @@ public class IntroToEncapsulation {
 		 * variables) under the umbrella of a single class and limiting access from
 		 * outside classes.
 		 */
-
+		int fuelTankCapacity;
+		int fuelInTank;
+		int mpg;
+		
 		// 1. Create a Vehicle object.
+		Vehicle carro = new Vehicle();
 
 		// 2. Use the vehicle's setters to change fuelTankCapacity and mpg.
-
+		
 		// 3. Call setFuelInTank with an amount greater than the capacity.
-
+		carro.setFuelTankCapacity(50);
+		carro.setMpg(11);
 		// Note: The reason setFuelInTank doesn't show up is because it's private.
 
 		// 4. Modify setFuelInTank's access modifier so you can use it.
 		// Hint: Access modifiers are described at the top of the Vehicle class.
 
 		// 5. Create a setter for the vehicle's color then set its color using it.
-
+		carro.setVehicleColor("green");
 		// 6. Create local variables for fuelTankCapacity, fuelInTank and mpg.
-
+		fuelTankCapacity = carro.getFuelTankCapacity();
+		
+		
 		// 7. Use the vehicle's getters to initialize all of them.
 		// Note: You may need to fix some access modifiers.
 
@@ -52,7 +59,7 @@ class Vehicle {
 
 	private int fuelInTank;
 
-	// protected makes the member accessible only to subclasses and the package.
+	// protected makes the member accessible only to ??subclasses and the package??. ***************
 
 	protected String color;
 
@@ -77,7 +84,7 @@ class Vehicle {
 		}
 	}
 
-	private void setFuelInTank(int fuelInTank) {
+	public void setFuelInTank(int fuelInTank) {
 		if (fuelInTank >= 0 && fuelInTank <= fuelTankCapacity) {
 			this.fuelInTank = fuelInTank;
 		} else {
@@ -85,14 +92,18 @@ class Vehicle {
 			this.fuelInTank = fuelTankCapacity;
 		}
 	}
+	
+	public void setVehicleColor(String color) {
+		this.color = color;
+	}
 
 	// A getter returns a member variable.
 
-	private int getFuelTankCapacity() {
+	int getFuelTankCapacity() {
 		return fuelTankCapacity;
 	}
 
-	private int getFuelInTank() {
+	int getFuelInTank() {
 		return fuelInTank;
 	}
 
