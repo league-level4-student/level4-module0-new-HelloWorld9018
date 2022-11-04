@@ -12,13 +12,23 @@ enum Elements {
 	 */
 
 	// Note: Every entry must be unique.
-	AIR, EARTH, FIRE, METAL, WATER, WOOD
+	AIR (0), EARTH (1), FIRE(2), METAL(3), WATER(4), WOOD(5);
+	/*int value;
+	Elements (int value){
+		this.value=value;
+	}*/
 }
 
 public class IntroToEnums {
 
 	public static void main(String[] args) {
-
+	/*	Elements air = Elements.AIR;
+		System.out.println(air.value);
+		if(air==Elements.AIR) {
+			System.out.println("hi");
+		}
+		*/
+		
 		// 1. In your package explorer, create a new enum file called StatesOfMatter.
 		// Hint: This is very similar to how you create a new class file.
 
@@ -27,9 +37,10 @@ public class IntroToEnums {
 
 		// 3. Create an array of StatesOfMatter with all the values using .values().
 		// Hint: Use "StatesOfMatter." as if it were a static method.
+		StatesOfMatter[] statesOfMatter = StatesOfMatter.values();
 
 		// 4. Ask the user for a state of matter.
-
+		JOptionPane.showInputDialog("Enter a state of matter");
 		// 5. Iterate through the array and find what the user entered.
 		// Hint: .name() or .toString
 

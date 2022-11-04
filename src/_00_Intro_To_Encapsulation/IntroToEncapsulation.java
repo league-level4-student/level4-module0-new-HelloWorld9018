@@ -12,6 +12,7 @@ public class IntroToEncapsulation {
 		int fuelTankCapacity;
 		int fuelInTank;
 		int mpg;
+		String color = "";
 		
 		// 1. Create a Vehicle object.
 		Vehicle carro = new Vehicle();
@@ -26,23 +27,31 @@ public class IntroToEncapsulation {
 		// 4. Modify setFuelInTank's access modifier so you can use it.
 		// Hint: Access modifiers are described at the top of the Vehicle class.
 
+		carro.setFuelInTank(35);
 		// 5. Create a setter for the vehicle's color then set its color using it.
 		carro.setVehicleColor("green");
 		// 6. Create local variables for fuelTankCapacity, fuelInTank and mpg.
 		fuelTankCapacity = carro.getFuelTankCapacity();
-		
+		fuelInTank = carro.getFuelInTank();
+		mpg = carro.getMpg();
 		
 		// 7. Use the vehicle's getters to initialize all of them.
 		// Note: You may need to fix some access modifiers.
 
 		// 8. Create a getter for color and do the same thing you did for steps 6 & 7.
-
+		color  = carro.getColor();
 		// 9. Print out all the local variables.
-
+		System.out.println("Fuel tank capacity: " + fuelTankCapacity + "\nFuel in tank: " + fuelInTank + "\nMPG: " + mpg + "\nColor: " + color);
 		// 10. If you haven't already, completely encapsulate the Vehicle class.
 		// Hint: Make all member variables private and all getters/setters public.
 
 		// 11. Drive the vehicle until it runs out of gas.
+		while(carro.getFuelInTank()>0) {
+		carro.drive();
+		}
+		//For calling public methods from outside classes... 
+		//If it is in an instance class (no static), then you must refer to the object of the class first,
+		//If it is in a static class, then you can just refer to the class name first
 	}
 
 }
@@ -53,7 +62,7 @@ class Vehicle {
 
 	// public makes the member accessible from anywhere in the project.
 
-	public int fuelTankCapacity;
+	private int fuelTankCapacity;
 
 	// private makes the member accessible only within the class.
 
@@ -61,17 +70,18 @@ class Vehicle {
 
 	// protected makes the member accessible only to ??subclasses and the package??. ***************
 
-	protected String color;
+	private String color;
 
 	// no access modifier makes the member accessible only to the package.
 
-	int mpg;
+	private int mpg;
 
 	// A setter changes a member variable.
 
 	public void setMpg(int mpg) {
 		this.mpg = mpg;
 	}
+
 
 	// More complex setters can be created if you want to limit changes to members.
 
@@ -99,16 +109,20 @@ class Vehicle {
 
 	// A getter returns a member variable.
 
-	int getFuelTankCapacity() {
+	public int getFuelTankCapacity() {
 		return fuelTankCapacity;
 	}
 
-	int getFuelInTank() {
+	public int getFuelInTank() {
 		return fuelInTank;
 	}
 
-	int getMpg() {
+	public int getMpg() {
 		return mpg;
+	}
+	
+	public String getColor() {
+		return color;
 	}
 
 	public void drive() {
