@@ -18,6 +18,14 @@ int y;
 		return matching;
 	}
 
+	public boolean equals(Location l) {
+		boolean matching = false;
+		if(this.x == l.getX() & this.y == l.getY()) {
+			matching  = true;
+		}
+		return matching;
+	}
+
 	public int getX() {
 		// TODO Auto-generated method stub
 		return x;
